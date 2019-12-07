@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>豆瓣电影</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/nprogress/nprogress.css">
+    <link href="app.css" rel="stylesheet">
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">豆瓣电影</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!/in_theaters/1" ng-class="{active: category==='in_theaters'}">
+                                正在热映
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!/coming_soon/1" ng-class="{active: category==='coming_soon'}">
+                                即将上映
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!/top250/1" ng-class="{active: category==='top250'}">
+                                top250
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-4 pt-5" ng-view>
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/nprogress/nprogress.js"></script>
+    <!-- 引入模块 -->
+    <script src="app.js"></script>
+    <script src="components/http.js"></script>
+    <script src="movie_list/controller.js"></script>
+    <script src="details/controller.js"></script>
+</body>
+
+</html>

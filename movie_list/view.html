@@ -1,0 +1,33 @@
+<h1 class="page-header">{{title}}</h1>
+<h3 ng-if="message">{{message}}</h3>
+<div class="list-group">
+    <a ng-repeat="item in subjects" href="#!/{{item.id}}" class="list-group-item list-group-item-action">
+        <span class="badge badge-info float-right mt-5">{{item.rating.average}}</span>
+        <div class="media">
+            <!-- <img ng-src="{{item.images.small}}" class="mr-3" alt="{{item.title}}" style="width: 80px;"> -->
+            <div class="media-body">
+                <h5 class="mt-0 mb-3">{{item.title}}</h5>
+                <p>导演：<span ng-repeat="d in item.directors">{{d.name}}<span ng-if="!$last">、</span></span></p>
+                <p>类型：<span>{{item.genres.join('、')}}</span></p>
+                <p>上映时间：<span ng-repeat="date in item.pubdates">{{date}}<span ng-if="!$last">、</span></span></p>
+            </div>
+        </div>
+    </a>
+</div>
+<div ng-show="!loading" class="mt-2 mb-5">
+    <p>一共有{{totalCount}}条记录, 第{{currentPage}}/{{totalPages}}页</p>
+    <nav>
+        <ul class="pagination justify-content-center">
+                <li>
+                    <button type="button" class="btn btn-outline-primary mr-1" ng-click="go(currentPage - 1)" ng-class="{disabled: currentPage<=1}">
+                        <span>&laquo;上一页</span>
+                    </button>
+                </li>
+                <li ng-class="{disabled: currentPage>=totalPages}">
+                    <button type="button" class="btn btn-outline-primary" ng-click="go(currentPage + 1)" ng-class="{disabled: currentPage>=totalPages}">
+                        <span>下一页&raquo;</span>
+                    </button>
+                </li>
+        </ul>
+    </nav>
+</div>

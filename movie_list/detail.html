@@ -1,0 +1,8 @@
+<h1>电影详情</h1>
+<p>电影名称：{{content.title}}</p>
+<p>导演：<span ng-repeat="d in content.directors">{{d.name}}{{$last?'':'、'}}</span></p>
+<p>演员：<span ng-repeat="c in content.casts">{{c.name}}{{$last?'':'、'}}</span></p>
+<p>平均得分：{{content.rating.average}}</p>
+<p>类型：{{content.genres.join('、')}}</p>
+<p>时长：{{content.durations.join('、')}}</p>
+<p>上映时间：{{content.pubdates.join('、')}}</p>

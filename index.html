@@ -6,52 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>豆瓣电影</title>
-    <link href="public/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/nprogress.css">
-    <link href="app.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/nprogress.css">
+    <link rel="stylesheet" href="public/css/app.css">
 </head>
 
 <body ng-app="myApp" ng-controller="myController">
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">豆瓣电影</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand text-white" href="#">豆瓣电影</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon text-white"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mr-4">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#!/in_theaters/1" ng-class="{'text-warning': category==='in_theaters'}">正在热映</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="#!/coming_soon/1" ng-class="{'text-warning': category==='coming_soon'}">即将上映</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#!/top250/1" ng-class="{'text-warning': category==='top250'}">Top250</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#!/in_theaters/1" ng-class="{active: category==='in_theaters'}">
-                                正在热映
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#!/coming_soon/1" ng-class="{active: category==='coming_soon'}">
-                                即将上映
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#!/top250/1" ng-class="{active: category==='top250'}">
-                                top250
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <main class="col-md-9 ml-sm-auto col-lg-10 px-4 pt-5" ng-view>
+            <main class="col-md-12 ml-sm-auto col-lg-12 px-4 pt-5" ng-view>
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 </div>
             </main>
         </div>
     </div>
-    <script src="public/angular.js"></script>
-    <script src="public/angular-route.js"></script>
-    <script src="public/nprogress.js"></script>
+    <script src="public/js/angular.min.js"></script>
+    <script src="public/js/angular-route.min.js"></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/nprogress.js"></script>
     <!-- 引入模块 -->
     <script src="app.js"></script>
     <script src="components/http.js"></script>
     <script src="movie_list/controller.js"></script>
-    <script src="details/controller.js"></script>
 </body>
 
 </html>

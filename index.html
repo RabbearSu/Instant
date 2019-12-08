@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>豆瓣电影</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/nprogress.css">
-    <link rel="stylesheet" href="/public/css/app.css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/nprogress.css">
+    <link rel="stylesheet" href="public/css/app.css">
 </head>
 
 <body ng-app="myApp" ng-controller="myController">
@@ -18,15 +18,21 @@
             <span class="navbar-toggler-icon text-white"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mr-4">
+            <ul class="navbar-nav  mr-4">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#!/in_theaters/1" ng-class="{'text-warning': category==='in_theaters'}">正在热映</a>
+                    <a class="nav-link" href="#!/in_theaters/1"
+                       ng-class="{'text-warning': category==='in_theaters',
+                       'text-white':category!=='in_theaters'}">正在热映</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="#!/coming_soon/1" ng-class="{'text-warning': category==='coming_soon'}">即将上映</a>
+                    <a class="nav-link" href="#!/coming_soon/1"
+                       ng-class="{'text-warning': category==='coming_soon',
+                       'text-white':category!=='coming_soon'}">即将上映</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#!/top250/1" ng-class="{'text-warning': category==='top250'}">Top250</a>
+                    <a class="nav-link" href="#!/top250/1"
+                       ng-class="{'text-warning': category==='top250',
+                       'text-white':category!=='top250'}">Top250</a>
                 </li>
             </ul>
         </div>
@@ -39,11 +45,12 @@
             </main>
         </div>
     </div>
-    <script src="/public/js/angular.min.js"></script>
-    <script src="/public/js/angular-route.min.js"></script>
-    <script src="/public/js/jquery.min.js"></script>
-    <script src="/public/js/bootstrap.min.js"></script>
-    <script src="/public/js/nprogress.js"></script>
+    <script src="public/js/angular.min.js"></script>
+    <script src="public/js/angular-route.min.js"></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/nprogress.js"></script>
+    <script src="public/js/index.js"></script>
     <!-- 引入模块 -->
     <script src="app.js"></script>
     <script src="components/http.js"></script>

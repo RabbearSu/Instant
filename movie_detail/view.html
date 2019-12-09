@@ -1,0 +1,17 @@
+<div ng-show="!loading">
+    <h1>{{content.title}}<span>({{content.year}})</span></h1>
+    <p>导演：<span ng-repeat="d in content.directors">{{d.name}}{{$last?'':' / '}}</span></p>
+    <p>演员：<span ng-repeat="c in content.casts">{{c.name}}{{$last?'':' / '}}</span></p>
+    <p>类型：{{content.genres.join(' / ')}}</p>
+    <p>国家：<span ng-repeat="c in content.countries">{{c}}{{$last?'':' / '}}</span></p>
+    <p>语言：<span ng-repeat="l in content.languages">{{l}}{{$last?'':' / '}}</span></p>
+    <p>时长：{{content.durations.join(' / ')}}</p>
+    <p>上映时间：{{content.pubdates.join(' / ')}}</p>
+    <p>又名：<span ng-repeat="a in content.aka">{{a}}{{$last?'':' / '}}</span></p>
+    <h3>简介:</h3>
+    <p>{{content.summary}}</p>
+    <h3>热门评论:</h3>
+    <div>
+        <p ng-repeat="comment in content.popular_comments">{{$index + 1}}、{{comment.content}}</p>
+    </div>
+</div>

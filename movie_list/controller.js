@@ -8,20 +8,17 @@
     $routeProvider.when('/:category/:page', {
       templateUrl: 'movie_list/view.html',
       controller: 'MovieListController'
-    }).when('/:id', {
-      templateUrl: 'movie_list/detail.html',
-      controller: 'DetailController'
     })
   }])
 
   //控制器
   app.controller('MovieListController', [
     '$scope',
-    '$rootScope',
     '$route',
     '$routeParams',
     'HttpService',
-    function($scope, $rootScope, $route, $routeParams, HttpService) {
+    '$document',
+    function($scope, $route, $routeParams, HttpService, $document) {
       //控制器分为两步
       //1. 设计暴露的数据
       //2. 设计暴露的行为
@@ -36,7 +33,7 @@
       $scope.message = ''
       $scope.totalCount = 0
       $scope.totalPages = 0
-      $rootScope.subjects = []
+      $scope.subjects = []
       $scope.loading = true
       $scope.title = ''
       //当前分类
@@ -49,12 +46,16 @@
       }, function(data) {
         $scope.totalCount = data.total
         $scope.totalPages = Math.ceil($scope.totalCount / count)
-        $rootScope.subjects = data.subjects
+        $scope.subjects = data.subjects
         $scope.loading = false
         $scope.title = data.title
         //使用$apply重新加载
         $scope.$apply()
 
+        //删除script标签
+        var scriptObjs = $document[0].getElementsByTagName('script')
+        var lastScriptObj = scriptObjs[scriptObjs.length-1]
+        $document[0].body.removeChild(lastScriptObj)
         NProgress.done()
       })
 
@@ -67,21 +68,4 @@
     }
   ])
 
-  app.controller('DetailController', [
-    '$scope',
-    '$rootScope',
-    '$route',
-    '$routeParams',
-    function($scope, $rootScope, $route, $routeParams) {
-      $scope.id = $routeParams.id
-      $scope.content = '默认'
-
-      //遍历列表，搜索匹配的电影条目
-      for (var i = 0; i < $rootScope.subjects.length; i++) {
-        if ($rootScope.subjects[i].id === $scope.id) {
-          $scope.content = $rootScope.subjects[i]
-        }
-      }
-    }
-  ])
 })(angular, NProgress)

@@ -1,17 +1,23 @@
 <div ng-show="!loading">
-    <h1>{{content.title}}<span>({{content.year}})</span></h1>
-    <p>导演：<span ng-repeat="d in content.directors">{{d.name}}{{$last?'':' / '}}</span></p>
-    <p>演员：<span ng-repeat="c in content.casts">{{c.name}}{{$last?'':' / '}}</span></p>
-    <p>类型：{{content.genres.join(' / ')}}</p>
-    <p>国家：<span ng-repeat="c in content.countries">{{c}}{{$last?'':' / '}}</span></p>
-    <p>语言：<span ng-repeat="l in content.languages">{{l}}{{$last?'':' / '}}</span></p>
-    <p>时长：{{content.durations.join(' / ')}}</p>
-    <p>上映时间：{{content.pubdates.join(' / ')}}</p>
-    <p>又名：<span ng-repeat="a in content.aka">{{a}}{{$last?'':' / '}}</span></p>
-    <h3>简介:</h3>
+    <p class="h1 mb-3">{{content.title}} <small class="text-muted">({{content.year}})</small></p>
+    <p><span class="text-muted">导演：</span><span ng-repeat="d in content.directors">{{d.name}}{{$last?'':' / '}}</span></p>
+    <p><span class="text-muted">演员：</span><span ng-repeat="c in content.casts">{{c.name}}{{$last?'':' / '}}</span></p>
+    <p><span class="text-muted">类型：</span>{{content.genres.join(' / ')}}</p>
+    <p><span class="text-muted">国家：</span><span ng-repeat="c in content.countries">{{c}}{{$last?'':' / '}}</span></p>
+    <p><span class="text-muted">语言：</span><span ng-repeat="l in content.languages">{{l}}{{$last?'':' / '}}</span></p>
+    <p><span class="text-muted">时长：</span>{{content.durations.join(' / ')}}</p>
+    <p><span class="text-muted">上映时间：</span>{{content.pubdates.join(' / ')}}</p>
+    <p><span class="text-muted">又名：</span><span ng-repeat="a in content.aka">{{a}}{{$last?'':' / '}}</span></p>
+    <h4 class="text-success mt-5 mb-3">{{content.title}}的剧情简介:</h4>
     <p>{{content.summary}}</p>
-    <h3>热门评论:</h3>
-    <div>
-        <p ng-repeat="comment in content.popular_comments">{{$index + 1}}、{{comment.content}}</p>
+    <h4 class="text-success mt-5 mb-3">{{content.title}}的短评:</h4>
+    <div ng-repeat="comment in content.popular_comments" class="border-top py-3">
+        <p>
+            <span class="text-primary">{{comment.author.name}}</span>
+            <span class="text-muted"> {{comment.created_at.slice(0,10)}}</span>
+            <span class="badge badge-info">{{comment.rating.value}}</span>
+            <span class="float-right">{{comment.useful_count}} <small class="text-primary">有用</small></span>
+        </p>
+        <p class="mb-0">{{comment.content}}</p>
     </div>
 </div>

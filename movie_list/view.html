@@ -6,7 +6,7 @@
         <div class="media">
             <!-- <img ng-src="{{item.images.small}}" class="mr-3" alt="{{item.title}}" style="width: 80px;"> -->
             <div class="media-body">
-                <h5 class="mt-0 mb-3">{{item.title}}</h5>
+                <h5 class="mb-4">{{item.title}}</h5>
                 <p>导演：<span ng-repeat="d in item.directors">{{d.name}}<span ng-if="!$last">、</span></span></p>
                 <p>类型：<span>{{item.genres.join('、')}}</span></p>
                 <p>上映时间：<span ng-repeat="date in item.pubdates">{{date}}<span ng-if="!$last">、</span></span></p>

@@ -1,0 +1,14 @@
+<div ng-show="!loading">
+    <p class="h3 mb-3">{{content.name}} <small>{{content.name_en}}</small></p>
+    <p><span class="text-muted">性别：</span>{{content.gender}}</p>
+    <p><span class="text-muted">星座：</span>{{content.constellation}}</p>
+    <p><span class="text-muted">出生地：</span>{{content.born_place}}</p>
+    <p><span class="text-muted">出生日期：</span>{{content.birthday}}</p>
+    <p ng-if="content.aka.length"><span class="text-muted">又名：</span><span ng-repeat="a in content.aka">{{a}}{{$last?'':' / '}}</span></p>
+    <h5 class="text-success mt-5 mb-3">影人简介：</h5>
+    <p>{{content.summary}}</p>
+    <h5 class="text-success mt-5 mb-3">最受好评的5部作品：</h5>
+    <div class="list-group mb-3">
+        <a class="list-group-item list-group-item-action border-0" ng-repeat="work in content.works" href="#!/movie/subject/{{work.subject.id}}">{{work.subject.title}}</a>
+    </div>
+</div>

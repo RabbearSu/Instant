@@ -2,7 +2,8 @@
   var app = angular.module('myApp', [
     'ngRoute',
     'moviecat.movie_list',
-    'moviecat.movie_detail'
+    'moviecat.movie_detail',
+    'moviecat.movie_person'
   ])
 
   app.config(['$routeProvider', function ($routeProvider) {

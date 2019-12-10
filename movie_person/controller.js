@@ -1,18 +1,18 @@
 (function (angular, NProgress) {
   //创建模块
-  var app = angular.module('moviecat.movie_detail', [
+  var app = angular.module('moviecat.movie_person', [
     'ngRoute',
     'moviecat.services.http'
   ])
 
   app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/movie/subject/:id', {
-      templateUrl: 'movie_detail/view.html',
-      controller: 'DetailController'
+    $routeProvider.when('/movie/celebrity/:id', {
+      templateUrl: 'movie_person/view.html',
+      controller: 'PersonController'
     })
   }])
 
-  app.controller('DetailController', [
+  app.controller('PersonController', [
     '$scope',
     '$route',
     '$routeParams',
@@ -23,7 +23,7 @@
       $scope.content = '默认'
       $scope.loading = true
 
-      HttpService.jsonp(`http://api.douban.com/v2/movie/subject/${$scope.id}`, {
+      HttpService.jsonp(`http://api.douban.com/v2/movie/celebrity/${$scope.id}`, {
         apikey: '0df993c66c0c636e29ecbb5344252a4a'
       }, function (data) {
         console.log(data)

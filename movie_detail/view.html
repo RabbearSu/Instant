@@ -1,16 +1,16 @@
 <div ng-show="!loading">
-    <p class="h1 mb-3">{{content.title}} <small class="text-muted">({{content.year}})</small></p>
-    <p><span class="text-muted">导演：</span><span ng-repeat="d in content.directors">{{d.name}}{{$last?'':' / '}}</span></p>
-    <p><span class="text-muted">演员：</span><span ng-repeat="c in content.casts">{{c.name}}{{$last?'':' / '}}</span></p>
+    <p class="h2 mb-3">{{content.title}} <small class="text-muted">({{content.year}})</small></p>
+    <p><span class="text-muted">导演：</span><a ng-repeat="d in content.directors" href="#!/movie/celebrity/{{d.id}}">{{d.name}}{{$last?'':' / '}}</a></p>
+    <p><span class="text-muted">演员：</span><a ng-repeat="c in content.casts" href="#!/movie/celebrity/{{c.id}}">{{c.name}}{{$last?'':' / '}}</a></p>
     <p><span class="text-muted">类型：</span>{{content.genres.join(' / ')}}</p>
     <p><span class="text-muted">国家：</span><span ng-repeat="c in content.countries">{{c}}{{$last?'':' / '}}</span></p>
     <p><span class="text-muted">语言：</span><span ng-repeat="l in content.languages">{{l}}{{$last?'':' / '}}</span></p>
     <p><span class="text-muted">时长：</span>{{content.durations.join(' / ')}}</p>
     <p><span class="text-muted">上映时间：</span>{{content.pubdates.join(' / ')}}</p>
     <p><span class="text-muted">又名：</span><span ng-repeat="a in content.aka">{{a}}{{$last?'':' / '}}</span></p>
-    <h4 class="text-success mt-5 mb-3">{{content.title}}的剧情简介:</h4>
+    <h5 class="text-success mt-5 mb-3">{{content.title}}的剧情简介:</h5>
     <p>{{content.summary}}</p>
-    <h4 class="text-success mt-5 mb-3">{{content.title}}的短评:</h4>
+    <h5 class="text-success mt-5 mb-3">{{content.title}}的短评:</h5>
     <div ng-repeat="comment in content.popular_comments" class="border-top py-3">
         <p>
             <span class="text-primary">{{comment.author.name}}</span>

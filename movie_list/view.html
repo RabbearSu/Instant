@@ -1,7 +1,7 @@
 <h1 class="page-header">{{title}}</h1>
 <h3 ng-if="message">{{message}}</h3>
 <div class="list-group">
-    <a ng-repeat="item in subjects" href="#!/{{item.id}}" class="list-group-item list-group-item-action">
+    <a ng-repeat="item in subjects" href="#!/movie/subject/{{item.id}}" class="list-group-item list-group-item-action">
         <span class="badge badge-info float-right mt-5">{{item.rating.average}}</span>
         <div class="media">
             <!-- <img ng-src="{{item.images.small}}" class="mr-3" alt="{{item.title}}" style="width: 80px;"> -->
